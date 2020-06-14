@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+var cors = require('cors');
 
 const keys = require("./config/keys");
 require("./models/User");
@@ -13,7 +14,7 @@ mongoose.connect(keys.mongoURI, {
 });
 
 const app = express();
-
+app.use(cors());
 app.use(
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -26,9 +27,9 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 
-// app.get("/", (req, res) => {
-//     res.send({ hi: "There" });
-// });
+app.get("/", (req, res) => {
+    res.send({ hi: "There" });
+});
 
 const PORT = process.env.PORT || 5000;
 
