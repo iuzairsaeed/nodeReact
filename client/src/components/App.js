@@ -6,10 +6,9 @@ import * as actions from '../actions';
 
 // const Header = () => <h2>Header</h2>
 import Header from './Header';
-import { render } from 'react-dom';
+import Landing from "./Landing";
 const Dashboard = () => <h2>Dashboard</h2>
 const surveyNew = () => <h2>surveyNew</h2>
-const Landing = () => <h2>Landing</h2>
 
 class App extends Component{
     componentDidMount(){
